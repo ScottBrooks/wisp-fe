@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :l1_nodes
+
+  map.resources :links
+
+  map.resources :locations
+
+  map.resources :devices
+
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   #map.register '/register', :controller => 'users', :action => 'create'
@@ -10,6 +18,9 @@ ActionController::Routing::Routes.draw do |map|
 	map.dashboard '/', :controller=>'dashboard', :action=>'index'
 	map.network '/network', :controller=>'network', :action=>'index'
 	map.help '/help', :controller=>'help', :action=>'index'
+
+	map.resource :links
+	map.resource :l1_nodes
 
   # The priority is based upon order of creation: first created -> highest priority.
 
