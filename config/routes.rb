@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :device_types
+
+  map.resources :locations
+
+  map.resources :locations
+
+  map.resources :l1_nodes
+
+  map.resources :l1_nodes
+
   map.resources :l1_nodes
 
   map.resources :links
@@ -15,7 +25,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
-	map.dashboard '/', :controller=>'dashboard', :action=>'index'
+	map.dashboard '/dashboard', :controller=>'dashboard', :action=>'index'
 	map.network '/network', :controller=>'network', :action=>'index'
 	map.help '/help', :controller=>'help', :action=>'index'
 

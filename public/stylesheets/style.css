@@ -199,6 +199,11 @@ border: solid 1px #DB7623;
 background: #fff url('../images/n2.gif') 0px 1px repeat-x;
 }
 
+#main_inner div.resource p
+{
+margin-bottom: 0em;
+}
+
 #main_inner p
 {
 text-align: justify;

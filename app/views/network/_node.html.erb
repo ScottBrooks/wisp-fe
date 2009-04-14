@@ -1,0 +1,5 @@
+<p>
+  Location: <%= node.location.name %><br/>
+  Device: <%= node.device.device_type.desc %><br/>
+  <%= link_to "Connect", :action=>:connect, :id=>node %>
+</p>

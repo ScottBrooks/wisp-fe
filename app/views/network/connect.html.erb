@@ -1,0 +1,20 @@
+<h3>Node:</h3>
+<table>
+	<tr>
+		<th>Connections</th>
+		<th>Avaiable Connections</th>
+	</tr>
+	<tr>
+		<td>
+			<% @node.children.each do |n| %>
+			  <%= n.location.name %>/<%=n.device.device_type.desc %><br/>
+			<% end %>
+		</td>
+
+		<td>
+			<% @nodes.each do |n| %>
+			  <%= n.location.name %>/<%=n.device.device_type.desc %> - <%= link_to "Create Link", :action=>:create_link, :id=>@node, :link=>n %><br/>
+			<% end %>
+		</td>
+	</tr>
+</table>

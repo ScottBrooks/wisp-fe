@@ -3,7 +3,7 @@ module ApplicationHelper
 
 
 	def menu_link( text, path )
-		link_to_unless_current( text, path ) do
+		link_to_unless( controller_name.downcase == text.downcase, text, path ) do
 			link_to( text, path, :class=>:active )
 		end
 	end

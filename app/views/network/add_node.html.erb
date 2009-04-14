@@ -1,0 +1,26 @@
+<h3>Add a Node</h3>
+<% form_for :l1_node, :url=>{:action=>:add_node} do |form| %>
+	<table>
+		<tr><th>Location:</th><td><%= form.collection_select :location_id, @locations, :id, :name %></td></tr>
+	</table>
+
+
+	<% fields_for :device do |d| %>
+		<h2>Device:</h2>
+		<table>
+		<tr><th>Device:</th><td><%= d.select :device_type_id, @device_types.collect{|dev| [dev.name + " - " + dev.model, dev.id] } %></td></tr>
+		<tr><th>Description</th><td><%= d.text_field :description %></td></tr>
+		<tr><th>Serial #</th><td><%= d.text_field :serial %></td></tr>
+		</table>
+		<br/>
+	<% end %>
+	
+	<h2>Link Info:</h2>
+	<table>
+		<tr><th>Link Speed:</th><td><%= form.text_field :link_speed %> - use ## mbps, kbps, bps, etc</td></tr>
+		<tr><th>Tested Speed:</th><td><%= form.text_field :real_link_speed %></td></tr>
+	</table>
+
+	<%= submit_tag %>	
+
+<% end %>

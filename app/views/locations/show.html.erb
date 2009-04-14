@@ -1,0 +1,44 @@
+<div class="resource">
+<p>
+  <b>Name:</b>
+  <%=h @location.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @location.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @location.city %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%=h @location.postal_code %>
+</p>
+
+<p>
+  <b>Room:</b>
+  <%=h @location.room %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%=h @location.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%=h @location.longitude %>
+</p>
+
+<p>
+	<b>Height:</b>
+	<%=h @location.height %>
+</p>
+
+</div>
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

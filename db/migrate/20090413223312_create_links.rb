@@ -4,7 +4,7 @@ class CreateLinks < ActiveRecord::Migration
 			t.integer :ancestor_id
 			t.string	:ancestor_type
 			t.integer	:descendant_id
-			t.integer	:descendant_type
+			t.string	:descendant_type
 			t.boolean	:direct
 			t.integer	:count
 

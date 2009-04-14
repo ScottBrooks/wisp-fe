@@ -1,0 +1,20 @@
+<h1>Editing device_type</h1>
+<div class="resource">
+<% form_for(@device_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+</div>
+<%= link_to 'Show', @device_type %> |
+<%= link_to 'Back', device_types_path %>

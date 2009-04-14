@@ -1,0 +1,14 @@
+<div class="resource">
+<p>
+  <b>Name:</b>
+  <%=h @device_type.name %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h @device_type.model %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_device_type_path(@device_type) %> |
+<%= link_to 'Back', device_types_path %>
