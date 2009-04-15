@@ -1,0 +1,28 @@
+<h1>Editing node</h1>
+<div class="resource">
+<% form_for(@l1_node) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows=>4 %>
+  </p>
+  <p>
+    <%= f.label :link_speed %><br />
+    <%= f.text_field :link_speed %>
+  </p>
+  <p>
+    <%= f.label :real_link_speed %><br />
+    <%= f.text_field :real_link_speed %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+</div>
+<%= link_to 'Show', @l1_node %> |
+<%= link_to 'Back', l1_nodes_path %>

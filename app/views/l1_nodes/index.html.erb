@@ -1,0 +1,26 @@
+<h1>Listing nodes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Link Speed</th>
+    <th>Real Link Speed</th>
+  </tr>
+
+<% @l1_nodes.each do |node| %>
+  <tr>
+    <td><%=h node.name %></td>
+    <td><%=h node.description %></td>
+    <td><%=h node.link_speed %></td>
+    <td><%=h node.real_link_speed %></td>
+    <td><%= link_to 'Show', node %></td>
+    <td><%= link_to 'Edit', edit_l1_node_path(node) %></td>
+    <td><%= link_to 'Destroy', node, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New location', new_location_path %>

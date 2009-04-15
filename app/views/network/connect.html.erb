@@ -1,19 +1,30 @@
-<h3>Node:</h3>
+<h2><span>Node:</span> <%= @node.name %> - <%= link_to "edit", edit_l1_node_path(@node) %></h2>
 <table>
 	<tr>
-		<th>Connections</th>
-		<th>Avaiable Connections</th>
+		<th>Location:</th><td><%= @node.location.name %></td>
 	</tr>
 	<tr>
+		<th>Device:</th><td><%= @node.device.device_type.desc %></td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<th valign="top">Parents:</th>
 		<td>
-			<% @node.children.each do |n| %>
-			  <%= n.location.name %>/<%=n.device.device_type.desc %><br/>
-			<% end %>
+			<%= render :partial=>'node', :collection=>@node.parents %>
 		</td>
-
+	</tr>
+	<tr>
+		<th valign="top">Children:</th>
 		<td>
-			<% @nodes.each do |n| %>
-			  <%= n.location.name %>/<%=n.device.device_type.desc %> - <%= link_to "Create Link", :action=>:create_link, :id=>@node, :link=>n %><br/>
+			<%= render :partial=>'node', :collection=>@node.children %>
+		</td>
+	</tr>
+	<tr>
+		<th valign=top>Available Links:</th>
+		<td>
+			<% @nodes.find_all{|n| !n.root? and n != @node}.each do |n| %>
+				<%= n.location.name %>/<%=n.device.device_type.desc %> - <%= link_to "Create Link", :action=>:create_link, :id=>@node, :link=>n %><br/>
 			<% end %>
 		</td>
 	</tr>

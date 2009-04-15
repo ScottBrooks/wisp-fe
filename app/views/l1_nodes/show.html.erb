@@ -1,0 +1,24 @@
+<div class="resource">
+<p>
+  <b>Name:</b>
+  <%=h @l1_node.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @l1_node.description %>
+</p>
+
+<p>
+  <b>Link Speed:</b>
+  <%=h @l1_node.link_speed %>
+</p>
+
+<p>
+  <b>Real Link Speed:</b>
+  <%=h @l1_node.real_link_speed %>
+</p>
+
+</div>
+<%= link_to 'Edit', edit_l1_node_path(@l1_node) %> |
+<%= link_to 'Back', l1_node_path %>
