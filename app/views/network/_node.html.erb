@@ -1,5 +1,8 @@
 <div class="graph-node">
   <b>Name:</b> <%= node.name %><br/>
   <b>Location:</b> <%= node.location.name %><br/>
-  <%= link_to "Edit", :action=>:connect, :id=>node %>
+  <%= link_to "Select", :action=>:connect, :id=>node %>
+	<% if (@node and Link.edge?(node,@node)) %>
+	<%= link_to "Disconnect", :action=>:destroy_link, :id=>node, :link=>@node %>
+	<% end %>
 </div>

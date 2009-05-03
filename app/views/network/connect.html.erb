@@ -23,8 +23,8 @@
 	<tr>
 		<th valign=top>Available Links:</th>
 		<td>
-			<% @nodes.find_all{|n| !n.root? and n != @node}.each do |n| %>
-				<%= n.location.name %>/<%=n.device.device_type.desc %> - <%= link_to "Create Link", :action=>:create_link, :id=>@node, :link=>n %><br/>
+			<% @nodes.find_all{|n| n != @node and !@node.parents.include?(n) and !@node.children.include?(n)}.sort{|x,y| x.location.name <=> y.location.name }.each do |n| %>
+				<%= n.name %> @ <%= n.location.name %>/<%=n.device.device_type.desc %> - <%= link_to 'Select', :action=>:connect, :id=>n %> | <%= link_to "Add as Parent", :action=>:create_link, :id=>@node, :link=>n %> | <%= link_to "Add As Child", :action=>:create_link, :id=>n, :link=>@node %><br/>
 			<% end %>
 		</td>
 	</tr>

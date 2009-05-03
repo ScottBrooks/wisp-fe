@@ -27,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.dashboard '/dashboard', :controller=>'dashboard', :action=>'index'
 	map.network '/network', :controller=>'network', :action=>'index'
+	map.config '/config', :controller=>'config', :action=>'index'
 	map.help '/help', :controller=>'help', :action=>'index'
 
 	map.resource :links

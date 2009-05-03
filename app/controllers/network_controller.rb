@@ -23,7 +23,7 @@ class NetworkController < ApplicationController
 
 	def connect
 		@node = L1Node.find params[:id]
-		@nodes = L1Node.find :all
+		@nodes = L1Node.find :all, :order=>:name
 	end
 
 	def create_link
@@ -31,6 +31,21 @@ class NetworkController < ApplicationController
 		@child = L1Node.find params[:link]
 
 		Link.connect(@child, @node)
+
+		redirect_to :action=>:connect, :id=>@node
+	end
+
+	def destroy_link
+		@node = L1Node.find params[:id]
+		@parent = L1Node.find params[:link]
+
+		link = Link.find_link(@parent, @node)
+		if link.destroyable?
+			link.destroy
+		else
+			link.make_indirect
+			link.save!
+		end
 
 		redirect_to :action=>:connect, :id=>@node
 	end

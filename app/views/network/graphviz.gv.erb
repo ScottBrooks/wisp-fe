@@ -1,6 +1,6 @@
 digraph network {
 <% @nodes.each do |node| -%>
-	<%= node.id %> [label="<%= node.location.name %>/<%= node.device.device_type.desc %>"];
+	<%= node.id %> [label="<%= node.name %> / <%= node.device.device_type.desc %>\n<%= node.location.name %>"];
 <% node.children.each do |child| -%>
 	<%= node.id %> -> <%= child.id %>;
 <% end -%>
